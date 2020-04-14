@@ -1,18 +1,21 @@
 import sys
-import Adafruit_DHT
-
 import time
 from datetime import datetime
 import os
 
+# Adafruit_DHT library to read the sensor
+# 
+import Adafruit_DHT
+
+#Assuming the database is at the user level
 os.chdir('/home/pi/database/')
 
+#Sensor type and Raspberry Pi Zero W GPIO pin in use
 sensor = 11
 pin = 4
 
-humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
-
-def dht11_read():
+#Reading the sensor - sometimes the reading is troublesome, because DHT11 sensors can be difficult to read
+def dht_read():
     try:
         humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
         datastr = ["Time: ", str(datetime.now()), " Temp: ", str(temperature), "C  Humidity: ", str(humidity), "%\n "]
@@ -28,9 +31,10 @@ def dht11_read():
     except:
         print("Failed to read, trying again")
         time.sleep(1)
-        dht11_read()
+        dht_read()
 
+#Making the script run
 while True:
-    dht11_read()
+    dht_read()
     time.sleep(900.0)
 
