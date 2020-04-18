@@ -52,6 +52,7 @@ def mongodb_post(db,humidity,temperature):
     }
     posts = db.posts
     posts.insert_one(post).inserted_id
+    print("Post successfully inserted in MongoDB")
 
 #Making the script run
 while True:
