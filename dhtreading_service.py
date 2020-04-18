@@ -2,6 +2,7 @@ import sys
 import time
 from datetime import datetime
 import os
+import socket
 
 # Remember to install packages!!!
 import pymongo
@@ -44,7 +45,7 @@ def dht_read(sensor, pin):
 #Posting to MongoDBs
 def mongodb_post(db,humidity,temperature):
     post = {
-        "Sensor": "RaspberryPiZeroW2",
+        "Sensor": socket.gethostname(),
         "Temperature": temperature,
         "Humidity": humidity,
         "Time": datetime.now(),
