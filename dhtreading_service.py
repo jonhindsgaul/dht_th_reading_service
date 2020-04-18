@@ -40,7 +40,7 @@ def dht_read(sensor, pin):
     except:
         print("Failed to read, trying again")
         time.sleep(1)
-        dht_read()
+        dht_read(sensor, pin)
 
 #Posting to MongoDBs
 def mongodb_post(db,humidity,temperature):
@@ -51,7 +51,7 @@ def mongodb_post(db,humidity,temperature):
         "Time": datetime.now(),
     }
     posts = db.posts
-    post_id = posts.insert_one(post).inserted_id
+    posts.insert_one(post).inserted_id
 
 #Making the script run
 while True:
