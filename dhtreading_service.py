@@ -2,7 +2,6 @@ import sys
 import time
 from datetime import datetime
 import os
-
 import pymongo
 from pymongo import MongoClient
 
@@ -20,8 +19,8 @@ pin = 4
 client = MongoClient('mongodb+srv://pi:Jnhjnh22@mongodbatlascluster-xpvxg.mongodb.net/test?retryWrites=true&w=majority')
 db = client.dhtreadings
 
-#Reading the sensor - sometimes the reading is troublesome, because DHT11 sensors can be difficult to read
-def dht_read():
+#Reading the sensor - somhuetimes the reading is troublesome, because DHT11 sensors can be difficult to read
+def dht_read(sensor, pin):
     try:
         humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
         datastr = ["Time: ", str(datetime.now()), " Temp: ", str(temperature), "C  Humidity: ", str(humidity), "%\n "]
@@ -40,18 +39,19 @@ def dht_read():
         time.sleep(1)
         dht_read()
 
-#Posting to MongoDB
-def mongodb_post(humidity, temperature):
-
-
-posts = db.posts
-post_id = posts.insert_one(post).inserted_id
-
-
+#Posting to MongoDBs
+def mongodb_post(db,humidity,temperature):
+    post = {
+        "Sensor": "RaspberryPiZeroW1",
+        "Temperature": temperature,
+        "Humidity": humidity,
+        "Time": datetime.now(),
+    }
+    posts = db.posts
+    post_id = posts.insert_one(post).inserted_id
 
 #Making the script run
 while True:
-    humidity, temperature = dht_read()
-    mongodb_post(humidity, temperature)
+    humidity, temperature = dht_read(sensor, pin)
+    mongodb_post(db, humidity, temperature)
     time.sleep(900.0)
-
