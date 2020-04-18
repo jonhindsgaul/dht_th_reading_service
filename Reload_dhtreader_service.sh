@@ -1,5 +1,6 @@
-sudo systemctl stop dhtreader.servuce
-sudo systemctl daemon-reload
-sudo systemctl start dhtreader.service
-sudo systemctl enable dhtreader.service
-sudo systemctl status dhtreader.service
+systemctl stop dhtreader.service
+systemctl daemon-reload
+systemctl start dhtreader.service
+systemctl enable dhtreader.service
+systemctl status dhtreader.service
+
