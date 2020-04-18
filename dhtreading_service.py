@@ -2,6 +2,8 @@ import sys
 import time
 from datetime import datetime
 import os
+
+# Remember to install packages!!!
 import pymongo
 from pymongo import MongoClient
 
