@@ -4,7 +4,9 @@
   "description": "Reading DHT sensors connected to Raspberry Pi's to show on a Home Dashboard",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +23,12 @@
   },
   "homepage": "https://github.com/jonhindsgaul/dht_th_reading_service#readme",
   "dependencies": {
-    "mongodb": "^3.5.6"
+    "express": "^4.17.1",
+    "mongodb": "^3.5.6",
+    "serve-index": "^1.9.1",
+    "upgrade": "^1.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
   }
 }
