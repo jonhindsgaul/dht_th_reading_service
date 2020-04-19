@@ -1,0 +1,26 @@
+{
+  "name": "dht_th_reading_service",
+  "version": "1.0.0",
+  "description": "Reading DHT sensors connected to Raspberry Pi's to show on a Home Dashboard",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonhindsgaul/dht_th_reading_service.git"
+  },
+  "keywords": [
+    "DHT",
+    "Adafruit"
+  ],
+  "author": "JHH",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jonhindsgaul/dht_th_reading_service/issues"
+  },
+  "homepage": "https://github.com/jonhindsgaul/dht_th_reading_service#readme",
+  "dependencies": {
+    "mongodb": "^3.5.6"
+  }
+}
