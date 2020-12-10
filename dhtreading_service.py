@@ -19,7 +19,7 @@ sensor = 11
 pin = 4
 
 #MongoDB access
-client = MongoClient('mongodb+srv://pi:Jnhjnh22@mongodbatlascluster-xpvxg.mongodb.net/test?retryWrites=true&w=majority')
+client = MongoClient('mongodb url')
 db = client.dhtreadings
 
 #Reading the sensor - somhuetimes the reading is troublesome, because DHT11 sensors can be difficult to read
